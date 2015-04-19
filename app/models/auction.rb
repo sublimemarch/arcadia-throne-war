@@ -6,6 +6,6 @@ class Auction < ActiveRecord::Base
       has_many :pledges, through: :rounds
       has_many :characters, through: :games
 
-      validates :type, presence: :true, numericality: {less_than_or_equal_to: 1}, numericality: {greater_than_or_equal_to: 1}
+      validates :type, presence: :true, numericality: {less_than_or_equal_to: 1, greater_than_or_equal_to: 0}
 
 end
