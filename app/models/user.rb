@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
       has_many :characters
-      
+
       validates :email, :name, :password_hash, :type, presence: true
       validates :email, :name, uniqueness: { case_sensitive: false }
 
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       end
 
       def password=(plaintext)
-      	  @password = BCrypt::PAssword.create(plaintext)
+      	  @password = BCrypt::Password.create(plaintext)
 	  self.password_hash = @password
       end
 
@@ -21,5 +21,5 @@ class User < ActiveRecord::Base
       end
 
 
-      
+
 end
