@@ -35,6 +35,9 @@ gem 'coveralls', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use ffaker to create fake data for tests
+gem 'ffaker'
+
 gem 'font-awesome-rails'
 
 group :development, :test do
