@@ -3,6 +3,6 @@ FactoryGirl.define do
     email FFaker::Internet.email
     name FFaker::NameCS.name
     password FFaker::Internet.password
-    type 0
+    user_type 0
   end
 end

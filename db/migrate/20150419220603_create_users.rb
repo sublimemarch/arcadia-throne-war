@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name, null: false, unique: true
       t.string :password_hash, null: false
 
-      t.integer :type, null: false
+      t.integer :user_type, null: false
 
       t.timestamps null: false
     end
