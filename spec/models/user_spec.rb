@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
 
     it { should validate_presence_of(:password_hash) }
 
-    it { should validate_presence_of(:type) }
+    it { should validate_presence_of(:user_type) }
 
     it { should validate_uniqueness_of(:email) }
 
@@ -24,10 +24,10 @@ RSpec.describe User, type: :model do
   end
 
   describe "#Authenticate" do
-    let(:user) { create(:user, password: 'abc') }
+    let(:user) { FactoryGirl.create(:user, password: 'abc') }
 
     it 'returns password hash when calling password' do
-      expect(user.email).to match(/\$2a/)
+      expect(user.password).to match(/\$2a/)
     end
 
     it 'returns a user object on correct password' do
