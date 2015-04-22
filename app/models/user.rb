@@ -20,11 +20,4 @@ class User < ActiveRecord::Base
 	        @_user if @_user && @_user.password == user[:password]
       end
 
-#      def create(attributes = {})
-#        @email = attributes[:email]
-#        @name = attributes[:name]
-#        password(attributes[:password])
-#        @user_type = attributes[:type] != nil ? attributes[:type] : 0
-#      end
-
 end

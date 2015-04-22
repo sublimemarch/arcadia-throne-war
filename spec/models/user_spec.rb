@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'returns nil on incorrect password' do
-      expect(User.authenticate({email: user.email, password: 'abcd'})).to be_a User
+      expect(User.authenticate({email: user.email, password: 'abcd'})).to be_nil
     end
   end
 end
