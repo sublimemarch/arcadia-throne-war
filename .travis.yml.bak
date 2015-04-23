@@ -3,4 +3,8 @@ before_script:
 
 language: ruby
 rvm:
+<<<<<<< HEAD
   - 2.2.1
+=======
+  - 2.2.1
+>>>>>>> a0ed4630b52c0d2a9229ee237d07f67a3635ab7f

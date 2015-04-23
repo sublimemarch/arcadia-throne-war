@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
       has_many :characters
-      
-      validates :email, :name, :password_hash, :type, presence: true
+
+      validates :email, :name, :password_hash, :user_type, presence: true
       validates :email, :name, uniqueness: { case_sensitive: false }
 
       before_save { |user| user.email = email.downcase}
@@ -11,15 +11,13 @@ class User < ActiveRecord::Base
       end
 
       def password=(plaintext)
-      	  @password = BCrypt::PAssword.create(plaintext)
-	  self.password_hash = @password
+      	  @password = BCrypt::Password.create(plaintext)
+	        self.password_hash = @password
       end
 
       def self.authenticate(user)
       	  @_user = User.find_by(email: user[:email].downcase)
-	  @_user if @_user && @_user.password == user[:password]
+	        @_user if @_user && @_user.password == user[:password]
       end
 
-
-      
 end

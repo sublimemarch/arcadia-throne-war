@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use travis-ci for testing and coveralls for coverage
 gem 'travis'
 gem 'coveralls', require: false
 
