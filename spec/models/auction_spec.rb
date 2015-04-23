@@ -14,11 +14,8 @@ RSpec.describe Auction, type: :model do
     subject { FactoryGirl.build(:auction) }
 
     it { should validate_presence_of(:phase) }
-    it do
-      should validate_numericality_of(:phase).is_greater_than_or_equal_to(0)
-    end
-    it do
-      should validate_numericality_of(:phase).is_less_than_or_equal_to(1)
-    end
+    
+    it { should validate_numericality_of(:phase).is_greater_than_or_equal_to(0) }
+    it { should validate_numericality_of(:phase).is_less_than_or_equal_to(1) }
   end
 end
