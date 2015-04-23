@@ -4,4 +4,5 @@ class Character < ActiveRecord::Base
 
   validates :pseudonym, :points_spent, presence: true
   validates :pseudonym, uniqueness: { case_sensitive: true }
+  validates :user, :game, presence: :true
 end
