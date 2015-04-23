@@ -53,3 +53,6 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
 end
+
+# Use tzinfo-data for Windows development
+gem 'tzinfo-data'
