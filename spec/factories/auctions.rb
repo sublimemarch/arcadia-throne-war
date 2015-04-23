@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :auction do
-    phase 0
+    phase Random.rand(2)
   end
 end
