@@ -53,4 +53,26 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root 'application#index'
+  get '/index', to: 'application#index'
+
+  get '/users/forgot', to: 'users#forgot'
+  post '/users/forgot', to: 'application#index'
+  get '/login' => 'auth#new'
+  post '/login' => 'auth#login'
+  get '/logout' => 'auth#logout'
+  get '/auth/:provider/callback', to: 'auth#create' #Don't know what this does?
+
+  get '/rules', to: 'application#rules'
+
+  resources :users, only: :create, :new
+
+  resources :games, only: :show, :index do
+    resources :pledges, only: :create
+    resources :characters, only: :create, :new
+  end
+
+
+
 end
