@@ -1,4 +1,40 @@
 Rails.application.routes.draw do
+  namespace :auction do
+    # Root
+    root 'application#index'
+
+    # Root via URL
+    get '/index', to: 'application#index'
+
+    # User actions
+    get '/users/forgot', to: 'users#forgot'
+    post '/users/forgot', to: 'application#index'
+    get '/login' => 'auth#new'
+    post '/login' => 'auth#login'
+    get '/logout' => 'auth#logout'
+
+    # To auction rules
+    get '/rules', to: 'application#rules'
+
+    # Automatic routes
+    resources :users, only: :create, :new
+
+    resources :games, only: :show, :index do
+      resources :pledges, only: :create
+      resources :characters, only: :create, :new
+    end
+
+    namespace :admin do
+      # GM routes
+      get 'pledgeplan', to: 'pledgeplan#index'
+
+      resources :games, only: :show, :index, :create do
+        resources :characters, only: :destroy
+        resources :pledges, only: :destroy
+      end
+
+    end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,26 +89,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  root 'application#index'
-  get '/index', to: 'application#index'
-
-  get '/users/forgot', to: 'users#forgot'
-  post '/users/forgot', to: 'application#index'
-  get '/login' => 'auth#new'
-  post '/login' => 'auth#login'
-  get '/logout' => 'auth#logout'
-  get '/auth/:provider/callback', to: 'auth#create' #Don't know what this does?
-
-  get '/rules', to: 'application#rules'
-
-  resources :users, only: :create, :new
-
-  resources :games, only: :show, :index do
-    resources :pledges, only: :create
-    resources :characters, only: :create, :new
-  end
-
-
 
 end
