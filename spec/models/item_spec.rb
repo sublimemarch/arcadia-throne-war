@@ -9,7 +9,6 @@ RSpec.describe Item, type: :model do
   describe "#Validations" do
     subject { FactoryGirl.build(:item) }
 
-    it { should validate_presence_of(:closed) }
     it { should validate_presence_of(:num_strikes) }
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:auction) }
