@@ -17,20 +17,20 @@ Rails.application.routes.draw do
     get '/rules', to: 'application#rules'
 
     # Automatic routes
-    resources :users, only: :create, :new
+    resources :users, only: [:create, :new]
 
-    resources :games, only: :show, :index do
-      resources :pledges, only: :create
-      resources :characters, only: :create, :new
+    resources :games, only: [:show, :index] do
+      resources :pledges, only: [:create]
+      resources :characters, only: [:create, :new]
     end
 
     namespace :admin do
       # GM routes
       get 'pledgeplan', to: 'pledgeplan#index'
 
-      resources :games, only: :show, :index, :create do
-        resources :characters, only: :destroy
-        resources :pledges, only: :destroy
+      resources :games, only: [:show, :index, :create] do
+        resources :characters, only: [:destroy]
+        resources :pledges, only: [:destroy]
       end
 
     end
