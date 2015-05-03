@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
     # User actions
     get '/users/forgot', to: 'users#forgot'
-    post '/users/forgot', to: 'application#index'
+    post '/users/forgot', to: 'users#forgotten'
     get '/login' => 'auth#new'
     post '/login' => 'auth#login'
     get '/logout' => 'auth#logout'
@@ -26,7 +26,12 @@ Rails.application.routes.draw do
 
     namespace :admin do
       # GM routes
-      get 'pledgeplan', to: 'pledgeplan#index'
+      get 'pledgeplan', to: 'pledgeplans#index'
+      #Pledgeplan routes not set up
+      get 'users/forgot', to: 'users#forgot'
+      post 'users/forgot', to: 'users#forgotten'
+      get 'users/temp', to: 'users#temp'
+      post 'users/approve', to: 'users#approve'
 
       resources :games, only: [:show, :index, :create] do
         resources :characters, only: [:destroy]
