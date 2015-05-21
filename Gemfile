@@ -30,8 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'travis'
 gem 'coveralls', require: false
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Use Puma as the app server
+gem 'puma'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
