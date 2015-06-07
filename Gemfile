@@ -41,6 +41,7 @@ gem 'puma'
 gem 'ffaker'
 
 gem 'font-awesome-rails'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'rspec'
