@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
       has_many :characters
 
+      enum user_type: [ :player, :admin ]
+
       validates :email, :name, :password_hash, :user_type, presence: true
       validates :email, :name, uniqueness: { case_sensitive: false }
 
