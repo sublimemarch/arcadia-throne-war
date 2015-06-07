@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150419220742) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer  "game_id"
-    t.integer  "phase",                      null: false
+    t.integer  "phase",      default: 0,     null: false
     t.boolean  "closed",     default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -34,15 +34,16 @@ ActiveRecord::Schema.define(version: 20150419220742) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",                  null: false
+    t.integer  "status",     default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.boolean  "closed",      default: false
     t.integer  "num_strikes", default: 0
-    t.integer  "name",                        null: false
+    t.integer  "name",        default: 0,     null: false
     t.integer  "auction_id",                  null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -66,12 +67,12 @@ ActiveRecord::Schema.define(version: 20150419220742) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",         null: false
-    t.string   "name",          null: false
-    t.string   "password_hash", null: false
-    t.integer  "user_type",     null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "email",                     null: false
+    t.string   "name",                      null: false
+    t.string   "password_hash",             null: false
+    t.integer  "user_type",     default: 0, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

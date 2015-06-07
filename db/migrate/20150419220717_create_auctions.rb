@@ -3,7 +3,7 @@ class CreateAuctions < ActiveRecord::Migration
     create_table :auctions do |t|
       t.belongs_to :game
 
-      t.integer :phase, null: false
+      t.integer :phase, default: 0, null: false
 
       t.boolean :closed, default: false
 
