@@ -1,0 +1,16 @@
+<h1>HELLO I AM A USER CREATION PAGE</h1>
+
+<div class="row">
+	<span class="large-3 large-centered columns">
+		<%= form_for(User.new) do |f| %>
+			<%= f.text_field :name %>
+
+			<%= f.email_field :email %>
+
+			<%= f.password_field :password %>
+
+			<%= f.submit "Create Account" %>
+		<% end %>
+
+	</span>
+</div>
