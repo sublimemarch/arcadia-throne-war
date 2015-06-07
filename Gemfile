@@ -42,6 +42,7 @@ gem 'ffaker'
 
 gem 'font-awesome-rails'
 gem 'foundation-rails'
+gem 'foundation_rails_helper'
 
 group :development, :test do
   gem 'rspec'
