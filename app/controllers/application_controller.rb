@@ -5,15 +5,22 @@ class ApplicationController < ActionController::Base
 
 
   def index
-
+    if logged_in?
+      redirect_to new_auction_game_character_path
+    else
+      redirect_to auction_login_path
+    end
   end
 
   def rules
-
   end
 
   def current_user
+    @_current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 
+  def logged_in?
+    current_user != nil
   end
 
   helper_method :current_user
