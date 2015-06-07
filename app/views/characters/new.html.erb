@@ -1,0 +1,16 @@
+<h1>HELLO I AM A CHARACTER CREATION PAGE</h1>
+<p>This is a list of auction rules</p>
+<p>This is why you use a pseudonym</p>
+
+<h2>You've selected game: <%= @selected_game %></h2>
+
+<div class="row">
+	<span class="large-3 large-centered columns">
+		<%= form_for(Character.new) do |f| %>
+			<%= f.text_field :pseudonym %>
+
+			<%= f.submit "Create Pseudonym" %>
+		<% end %>
+
+	</span>
+</div>
