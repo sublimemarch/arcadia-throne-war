@@ -6,13 +6,14 @@ class ApplicationController < ActionController::Base
 
   def index
     if logged_in?
-      redirect_to new_auction_game_character_path
+      redirect_to new_game_character_path
     else
-      redirect_to auction_login_path
+      redirect_to login_path
     end
   end
 
   def rules
+    @butts = "HI HELLO I AM WORDS"
   end
 
   def current_user
